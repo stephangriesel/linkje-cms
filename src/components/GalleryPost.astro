@@ -1,6 +1,6 @@
 ---
-import Nav from './Nav.astro';
-import Footer from './Footer.astro';
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
 
 export interface Props {
   title: string;
@@ -33,28 +33,28 @@ const { title, description, tag } = Astro.props as Props;
 
     <script define:vars={{ tag }} type="text/javascript">
       (function init() {
-        if (typeof window?.cloudinary !== 'undefined') {
+        if (typeof window?.cloudinary !== "undefined") {
           window.myGallery = cloudinary.galleryWidget({
-            container: '#my-gallery',
-            cloudName: 'chipchop',
-            mediaAssets: [{ tag: tag, mediaType: 'image' }],
-            carouselLocation: 'bottom',
-            aspectRatio: '4:3',
+            container: "#my-gallery",
+            cloudName: "cloudname",
+            mediaAssets: [{ tag: tag, mediaType: "image" }],
+            carouselLocation: "bottom",
+            aspectRatio: "4:3",
             themeProps: {
-              primary: '#FFFFFF',
-              onPrimary: '#929292',
-              active: '#000000',
+              primary: "#FFFFFF",
+              onPrimary: "#929292",
+              active: "#000000",
             },
             thumbnailProps: {
               width: 120,
               height: 80,
               spacing: 1,
-              navigationColor: 'white',
+              navigationColor: "white",
             },
             viewportBreakpoints: [
               {
                 breakpoint: 600,
-                carouselStyle: 'indicators',
+                carouselStyle: "indicators",
               },
             ],
           });
@@ -65,9 +65,9 @@ const { title, description, tag } = Astro.props as Props;
       })();
 
       document.addEventListener(
-        'astro:after-swap',
+        "astro:after-swap",
         () => {
-          if (typeof window.myGallery !== 'undefined') {
+          if (typeof window.myGallery !== "undefined") {
             window.myGallery.destroy();
           }
         },
