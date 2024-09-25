@@ -1,13 +1,13 @@
 ---
 title: test
 logo: https://placehold.co/600x400?text=Test
-menuitem1: test
-menuitem1url: test
-menuitem2: test
-menuitem2url: test
-menuitem3: test
-menuitem3url: test
-menuitem4: test
-menuitem4url: test
+menuitem1: home
+menuitem1url: "#"
+menuitem2: about
+menuitem2url: "#"
+menuitem3: contact
+menuitem3url: "#"
+menuitem4: ""
+menuitem4url: ""
 layout: ../../../layouts/General.astro
 ---
