@@ -7,7 +7,7 @@ import { SITE } from "../config";
 
 let { title } = SITE;
 let description = "Custom-made designs made simple";
-let permalink = "https://www.vistapeople.net/";
+let permalink = "https://www.company.net/";
 
 let allNavBar = await Astro.glob("./content/navigationbar/*.md");
 allNavBar = allNavBar.sort(
@@ -45,12 +45,12 @@ allNavBar = allNavBar.sort(
           <input
             name="_redirect"
             type="hidden"
-            value="https://www.vistapeople.net/success"
+            value="https://www.company.net/success"
           />
           <input
             name="_redirect_error"
             type="hidden"
-            value="https://www.vistapeople.net/error"
+            value="https://www.company.net/error"
           />
           <label
             class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"

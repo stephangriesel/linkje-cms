@@ -1,3 +1,3 @@
 export const SITE = {
-  title: "Vista People",
+  title: "Company Name",
 };
