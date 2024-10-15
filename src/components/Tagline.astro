@@ -1,0 +1,25 @@
+---
+type Props = {
+  data: {
+    name: string;
+    icon: string;
+    link: string;
+    status: string;
+    description: string;
+    iconDescription: string;
+    tagline: string;
+  };
+};
+
+const { data } = Astro.props;
+---
+
+{
+  data && data.status === "enabled" && (
+    <div>
+      <p class="font-poppins font-thin text-center mr-16 ml-16 leading-tight text-sm uppercase text-blue-900">
+        {data.tagline}
+      </p>
+    </div>
+  )
+}

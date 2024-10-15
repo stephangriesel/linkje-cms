@@ -1,0 +1,67 @@
+---
+import Hero from "../components/Hero.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import Title from "../components/Title.astro";
+import Description from "../components/Description.astro";
+import Footer from "../components/Footer.astro";
+import Tagline from "../components/Tagline.astro";
+import FooterImage from "../components/FooterImage.astro";
+import HomeIntro from "../components/HomeIntro.astro";
+
+
+const res = await fetch(
+  "https://script.google.com/macros/s/AKfycby34u3hSaMgPU6_G_p7KL2l6rY9wgKkmZMIRfA-k5JaSGIPP1rGTgWnUywJ0b5yZqHL/exec"
+);
+
+const { data } = await res.json();
+
+const pageTitle = data[0].name;
+
+let allHomeIntro = await Astro.glob("./content/homeintro/*.md");
+allHomeIntro = allHomeIntro.sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
+);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Sans+Narrow:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="grid place-items-center min-h-screen bg-slate-200">
+    <section class="grid place-items-center">
+      <HomeIntro post={allHomeIntro[0]} />
+      <p class="text-1xl">
+        {data.map((i: (typeof data)[0]) => <Description data={i} />)}
+      </p>
+      <div>
+        <div class="flex flex-col">
+          {data.map((i: (typeof data)[0]) => <SocialLinks data={i} />)}
+        </div>
+      </div>
+      <div>
+        <div class="flex flex-col">
+          {data.map((i: (typeof data)[0]) => <FooterImage data={i} />)}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

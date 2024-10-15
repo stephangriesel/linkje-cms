@@ -1,0 +1,23 @@
+---
+type Props = {
+  data: {
+    name: string;
+    icon: string;
+    link: string;
+    status: string;
+    description: string;
+  };
+};
+
+const { data } = Astro.props;
+---
+
+{
+  data && data.status === "enabled" && (
+    <div>
+      <h1 class="font-oldstandard text-3xl leading-5 text-blue-900 uppercase">
+        {data.name}
+      </h1>
+    </div>
+  )
+}

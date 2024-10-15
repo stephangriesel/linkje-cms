@@ -1,0 +1,26 @@
+---
+type Props = {
+  data: {
+    name: string;
+    icon: string;
+    link: string;
+    status: string;
+    description: string;
+    footerImage: string;
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<div class="mt-10">
+  {
+    data.status === "enabled" && (
+      <img
+        src={data.footerImage}
+        class="object-cover object-center rounded-full border-4 w-32 h-32"
+        alt="hero"
+      />
+    )
+  }
+</div>

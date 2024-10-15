@@ -10,13 +10,13 @@ const { post } = Astro.props;
   <div class="p-5">
     <a href={post.url}>
       <h1
-        class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white font-pathway-gothic-one animation"
+        class="font-oldstandard text-3xl leading-5 text-blue-900 uppercase"
       >
         {post.frontmatter.title}
       </h1>
     </a>
     <p
-      class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400 animation"
+      class="font-poppins font-thin text-center mr-16 ml-16 leading-tight text-sm uppercase text-blue-900"
     >
       {post.frontmatter.description}
     </p>

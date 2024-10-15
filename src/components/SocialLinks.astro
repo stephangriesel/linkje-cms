@@ -1,0 +1,35 @@
+---
+type Props = {
+  data: {
+    name: string;
+    icon: string;
+    link: string;
+    status: string;
+    description: string;
+    iconDescription: string;
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<ul class="w-80 justify-between">
+  {
+    data && (
+      <>
+        {data.link && data.icon && data.iconDescription && (
+          <a href={data.link}>
+            <li class="p-1 m-3 h-12 flex bg-neutral-100 justify-between items-center rounded-lg border-2 border-blue-900 font-oldstandard shadow-xl leading-tight">
+              <span class="m-2">
+                <p>{data.iconDescription}</p>
+              </span>
+              <span class="m-2">
+                <i class={data.icon} />
+              </span>
+            </li>
+          </a>
+        )}
+      </>
+    )
+  }
+</ul>
