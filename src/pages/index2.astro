@@ -49,9 +49,6 @@ allHomeIntro = allHomeIntro.sort(
   <body class="grid place-items-center min-h-screen bg-slate-200">
     <section class="grid place-items-center">
       <HomeIntro post={allHomeIntro[0]} />
-      <p class="text-1xl">
-        {data.map((i: (typeof data)[0]) => <Description data={i} />)}
-      </p>
       <div>
         <div class="flex flex-col">
           {data.map((i: (typeof data)[0]) => <SocialLinks data={i} />)}
