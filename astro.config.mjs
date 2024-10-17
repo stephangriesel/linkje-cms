@@ -62,7 +62,7 @@ export default defineConfig({
             name: "socials",
             label: "Social Posts",
             label_singular: "Social Post",
-            folder: "src/pages/social",
+            folder: "src/pages/content/social",
             create: true,
             delete: true,
             fields: [
@@ -84,16 +84,14 @@ export default defineConfig({
                 label: "Url",
                 required: true,
               },
-              { name: "tag", widget: "string", label: "Tag", required: true },
-              { name: "body", widget: "markdown", label: "Post Body" },
               {
                 name: "layout",
                 widget: "select",
-                default: "../../layouts/General.astro",
+                default: "../../../layouts/General.astro",
                 options: [
                   {
                     label: "General Post",
-                    value: "../../layouts/General.astro",
+                    value: "../../../layouts/General.astro",
                   },
                 ],
               },
