@@ -23,6 +23,13 @@ allHomeIntro = allHomeIntro.sort(
     new Date(b.frontmatter.publishDate).valueOf() -
     new Date(a.frontmatter.publishDate).valueOf()
 );
+let allSocialLinks = await Astro.glob("./content/social/*.md");
+allSocialLinks = allSocialLinks.sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
+);
+console.log("social links", allSocialLinks)
 ---
 
 <html lang="en">
@@ -50,14 +57,7 @@ allHomeIntro = allHomeIntro.sort(
     <section class="grid place-items-center">
       <HomeIntro post={allHomeIntro[0]} />
       <div>
-        <div class="flex flex-col">
-          {data.map((i: (typeof data)[0]) => <SocialLinks data={i} />)}
-        </div>
-      </div>
-      <div>
-        <div class="flex flex-col">
-          {data.map((i: (typeof data)[0]) => <FooterImage data={i} />)}
-        </div>
+        {allSocialLinks.map((p) => <SocialLinks post={p} />)}
       </div>
     </section>
   </body>
