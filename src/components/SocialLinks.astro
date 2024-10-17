@@ -1,35 +1,67 @@
 ---
-type Props = {
-  data: {
-    name: string;
-    icon: string;
-    link: string;
-    status: string;
-    description: string;
-    iconDescription: string;
-  };
-};
+export interface Props {
+  post: any;
+}
 
-const { data } = Astro.props;
+const { post } = Astro.props;
+console.log("soical links", post)
 ---
 
-<ul class="w-80 justify-between">
-  {
-    data && (
-      <>
-        {data.link && data.icon && data.iconDescription && (
-          <a href={data.link}>
-            <li class="p-1 m-3 h-12 flex bg-neutral-100 justify-between items-center rounded-lg border-2 border-blue-900 font-oldstandard shadow-xl leading-tight">
-              <span class="m-2">
-                <p>{data.iconDescription}</p>
-              </span>
-              <span class="m-2">
-                <i class={data.icon} />
-              </span>
-            </li>
-          </a>
-        )}
-      </>
-    )
+<div class="text-center animation">
+  <div class="p-5">
+    <!-- <a href={post.url}> -->
+      <h1
+        class="font-oldstandard text-3xl leading-5 text-blue-900 uppercase"
+      >
+        {post.frontmatter.title}
+      </h1>
+    <!-- </a> -->
+    <p
+      class="font-poppins font-thin text-center mr-16 ml-16 leading-tight text-sm uppercase text-blue-900"
+    >
+      {post.frontmatter.icon}
+    </p>
+  </div>
+</div>
+
+<style>
+  .animation {
+    opacity: 0;
+    transition: all 0.7s ease-out;
+    transition-delay: 0.4s;
   }
-</ul>
+
+  .scroll-animation {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+<script>
+  const the_animation = document.querySelectorAll(".animation");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Check for "seen" class and element visibility
+          if (
+            !entry.target.classList.contains("seen") &&
+            (entry.target as HTMLElement).offsetParent !== null
+          ) {
+            entry.target.classList.add("scroll-animation");
+            entry.target.classList.add("seen");
+
+            // Unobserve element after animation (optional)
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  for (let i = 0; i < the_animation.length; i++) {
+    const elements = the_animation[i];
+    observer.observe(elements);
+  }
+</script>
