@@ -3,23 +3,23 @@ export interface Props {
   post: any;
 }
 
+import { Icon } from "astro-icon/components";
+
 const { post } = Astro.props;
-console.log("soical links", post)
+console.log("soical links", post);
 ---
 
-<div class="text-center animation">
-  <div class="p-2 flex justify-evenly">
+<div class="animation">
+  <div class="p-2 flex justify-between">
     <a href={post.url}>
-      <h1
-        class="font-oldstandard"
-      >
+      <h1 class="font-oldstandard">
         {post.frontmatter.title}
       </h1>
     </a>
     <p
-      class="font-poppins font-thin text-center mr-16 ml-16 leading-tight text-sm uppercase text-blue-900"
+      class="font-poppins font-thin mr-16 ml-16 leading-tight text-sm uppercase text-blue-90"
     >
-      {post.frontmatter.icon}
+      <Icon name="elips" />
     </p>
   </div>
 </div>
@@ -57,7 +57,7 @@ console.log("soical links", post)
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   for (let i = 0; i < the_animation.length; i++) {
