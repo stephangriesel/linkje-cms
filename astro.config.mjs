@@ -23,7 +23,22 @@ export default defineConfig({
       media_folder: "public/upload",
       public_folder: "/upload",
       // Configure the content collections
-      collections: [{
+      collections: [
+        {
+          name: "Profile Photo",
+          label: "Profile Photo",
+          label_singular: "Profile Photo",
+          folder: "src/pages/content/profilephoto",
+          create: true,
+          delete: true,
+          fields: [{
+            name: "profilephoto",
+            widget: "image",
+            label: "Profile Photo",
+            required: true
+          }],
+        },
+        {
         name: "homeintro",
         label: "Home Intro",
         label_singular: "intro",
@@ -84,7 +99,8 @@ export default defineConfig({
             value: "../../../layouts/General.astro"
           }]
         }]
-      }]
+      },
+    ]
     }
   }), icon()]
 });
