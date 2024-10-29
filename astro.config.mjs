@@ -75,7 +75,14 @@ export default defineConfig({
         folder: "src/pages/content/social",
         create: true,
         delete: true,
-        fields: [{
+        fields: [
+          {
+          name: "socialimg",
+          widget: "image",
+          label: "Social Image",
+          required: true
+          },
+          {
           name: "title",
           widget: "string",
           label: "Title",
