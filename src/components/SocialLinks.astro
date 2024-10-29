@@ -10,14 +10,15 @@ console.log("soical links", post);
 ---
 
 <div class="animation">
-  <div class="p-2 flex justify-between">
+  <div class="p-2 flex justify-between items-center">
+    <img class="m-3 w-5 h-5" src={post.frontmatter.socialimg} />
     <a href={post.url}>
       <h1 class="font-oldstandard">
         {post.frontmatter.title}
       </h1>
     </a>
     <p
-      class="font-poppins font-thin mr-16 ml-16 leading-tight text-sm uppercase text-blue-90"
+      class="flex text-left font-poppins font-thin mr-16 ml-16 leading-tight text-sm uppercase text-blue-90"
     >
       <Icon name="elips" />
     </p>
