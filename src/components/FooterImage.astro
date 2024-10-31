@@ -1,26 +1,55 @@
 ---
-type Props = {
-  data: {
-    name: string;
-    icon: string;
-    link: string;
-    status: string;
-    description: string;
-    footerImage: string;
-  };
-};
+export interface Props {
+  post: any;
+}
 
-const { data } = Astro.props;
+const { post } = Astro.props;
 ---
 
-<div class="mt-10">
-  {
-    data.status === "enabled" && (
-      <img
-        src={data.footerImage}
-        class="object-cover object-center rounded-full border-4 w-32 h-32"
-        alt="hero"
-      />
-    )
-  }
+<div class="animation">
+  <div class="w-32 pt-6">
+    <img src={post.frontmatter.footerimage} />
+  </div>
 </div>
+
+<style>
+  .animation {
+    opacity: 0;
+    transition: all 0.7s ease-out;
+    transition-delay: 0.4s;
+  }
+
+  .scroll-animation {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+<script>
+  const the_animation = document.querySelectorAll(".animation");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Check for "seen" class and element visibility
+          if (
+            !entry.target.classList.contains("seen") &&
+            (entry.target as HTMLElement).offsetParent !== null
+          ) {
+            entry.target.classList.add("scroll-animation");
+            entry.target.classList.add("seen");
+
+            // Unobserve element after animation (optional)
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  for (let i = 0; i < the_animation.length; i++) {
+    const elements = the_animation[i];
+    observer.observe(elements);
+  }
+</script>
