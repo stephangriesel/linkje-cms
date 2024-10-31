@@ -10,18 +10,14 @@ console.log("soical links", post);
 ---
 
 <div class="animation">
-  <div class="pr-3 pl-3 m-1 flex space-evenly items-center border-solid border-2 border-slate-600 hover:border-slate-300 rounded-md cursor-pointer ease-in-out duration-300">
+  <div class="pr-2 pl-2 m-1 flex space-evenly items-center border-solid border border-slate-600 hover:border-slate-300 rounded-md cursor-pointer ease-in-out duration-300">
     <div><img class="m-3 w-5 h-5" src={post.frontmatter.socialimg} /></div>
     <div class="w-48 max-w-80">
       <a href={post.url}>
-        <h1 class="font-oldstandard">
+        <h1 class="font-poppins">
           {post.frontmatter.title}
         </h1>
       </a>
-      <p
-        class="flex text-left font-poppins font-thin mr-16 ml-16 leading-tight text-sm uppercase text-blue-90"
-      >
-      </p>
     </div>
     <div><Icon name="elips" /></div>
   </div>
