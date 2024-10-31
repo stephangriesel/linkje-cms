@@ -1,0 +1,3 @@
+---
+footerimage: /upload/user.png
+---
