@@ -1,3 +1,0 @@
----
-profilephoto: /upload/user.png
----

@@ -1,0 +1,3 @@
+---
+title: /upload/user.png
+---

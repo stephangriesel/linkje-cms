@@ -1,3 +1,0 @@
----
-footerimage: /upload/user.png
----
