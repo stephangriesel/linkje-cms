@@ -31,12 +31,20 @@ export default defineConfig({
           folder: "src/pages/content/profilephoto",
           create: true,
           delete: true,
-          fields: [{
-            name: "title",
+          fields: [
+            {
+              name: "title",
+              widget: "string",
+              label: "Title",
+              required: true
+            },
+            {
+            name: "profilephoto",
             widget: "image",
             label: "Profile Photo",
             required: true
-          }],
+          },
+        ],
         },
         {
         name: "homeintro",
@@ -114,8 +122,15 @@ export default defineConfig({
         folder: "src/pages/content/footerimage",
         create: true,
         delete: true,
-        fields: [{
-          name: "title",
+        fields: [
+          {
+            name: "title",
+            widget: "string",
+            label: "Title",
+            required: true
+          },
+          {
+          name: "footerimage",
           widget: "image",
           label: "Footer Image",
           required: true
