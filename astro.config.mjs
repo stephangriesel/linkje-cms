@@ -107,6 +107,20 @@ export default defineConfig({
           }]
         }]
       },
+      {
+        name: "Footer Image",
+        label: "Footer Image",
+        label_singular: "Footer Image",
+        folder: "src/pages/content/footerimage",
+        create: true,
+        delete: true,
+        fields: [{
+          name: "footerimage",
+          widget: "image",
+          label: "Footer Image",
+          required: true
+        }],
+      },
     ]
     }
   }), icon()]
