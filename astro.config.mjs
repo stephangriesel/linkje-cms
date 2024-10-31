@@ -32,7 +32,7 @@ export default defineConfig({
           create: true,
           delete: true,
           fields: [{
-            name: "profilephoto",
+            name: "title",
             widget: "image",
             label: "Profile Photo",
             required: true
@@ -115,7 +115,7 @@ export default defineConfig({
         create: true,
         delete: true,
         fields: [{
-          name: "footerimage",
+          name: "title",
           widget: "image",
           label: "Footer Image",
           required: true
