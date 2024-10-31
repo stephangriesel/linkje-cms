@@ -2,6 +2,7 @@
 import SocialLinks from "../components/SocialLinks.astro";
 import HomeIntro from "../components/HomeIntro.astro";
 import ProfilePhoto from "../components/ProfilePhoto.astro";
+import FooterImage from "../components/FooterImage.astro";
 
 const res = await fetch(
   "https://script.google.com/macros/s/AKfycby34u3hSaMgPU6_G_p7KL2l6rY9wgKkmZMIRfA-k5JaSGIPP1rGTgWnUywJ0b5yZqHL/exec"
@@ -25,6 +26,12 @@ allHomeIntro = allHomeIntro.sort(
 );
 let allSocialLinks = await Astro.glob("./content/social/*.md");
 allSocialLinks = allSocialLinks.sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
+);
+let allFooterImage = await Astro.glob("./content/footerimage/*.md");
+allFooterImage = allFooterImage.sort(
   (a, b) =>
     new Date(b.frontmatter.publishDate).valueOf() -
     new Date(a.frontmatter.publishDate).valueOf()
@@ -60,6 +67,7 @@ console.log("social links", allSocialLinks)
       <div>
         {allSocialLinks.map((p) => <SocialLinks post={p} />)}
       </div>
+      <FooterImage post={allFooterImage[0]} />
     </section>
   </body>
 </html>
